@@ -28,11 +28,17 @@ ___
 ### Run docker container
 
 ```shell
-$ docker --publish $DOCKER_IP:5000:5000 --name=my-flask-app-container flask-app-image
+$ docker run --publish 5000:5000 --name=my-flask-app-container flask-app-image
 ```
 
 Default image name points to latest. Alternatively `-P` exposes all internal
 ports, including base images.
+
+Alternatively:
+
+```shell
+$ docker --publish $DOCKER_IP:5000:5000 --name=my-flask-app-container flask-app-image
+```
 
 ___
 
@@ -120,6 +126,9 @@ ___
 ```shell
 $ docker run -p 5000:5000 --name=my-flask-app-container flask-app-image --rm -it flask-app-image sh
 ```
+
+Combine run and exec.
+
 ___
 
 ### Kill container with SIGTERM
